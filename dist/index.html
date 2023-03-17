@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Country</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./images/icons8-país-48.png" type="image/x-icon">
+    <script src="./index.min.js" defer type="module"></script>
+</head>
+<body>
+    <div id="container">
+        <section id="section1">
+            <div id="information">
+                <img src="./images/undraw_search_engines_ij7q.svg" id="logo-img">
+                <p>
+                    Do you have any doubts about any country? Just type the country's name and discover lots of informations, including borders, language, currency and much more. If you can't find the desired country by it's name, you can find it by clicking in the correspondent card in the list below.
+                </p>
+            </div>
+            <form>
+                <input list="countries" name="searchInput" id="searchInput" required autocomplete="off">
+                <datalist id="countries" placeholder="Country">
+                </datalist>
+                <button id="searchBtn" type="submit">
+                    <img src="./images/icons8-pesquisar-50.png" alt="">
+                </button>
+                <span id="error-span"></span>
+            </form>
+        </section>
+        <section id="section2">
+            <div id="cardArea">
+                <img src="./images/undraw_around_the_world_re_rb1p.svg" alt="" id="before-img">
+            </div>
+        </section>
+        <section id="section3"></section>
+    </div>
+</body>
+</html>
