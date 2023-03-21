@@ -11,18 +11,21 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #container {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  min-height: 100vh;
   background-color: #0044ff;
   gap: 3.5rem;
 }
 
 #section1 {
-  min-width: 100vw;
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
+  min-width: 100vw;
   color: #dddddd;
 }
 #section1 #information {
@@ -40,10 +43,18 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 #section1 form {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.375rem;
+}
+#section1 form div {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-#section1 form input {
+#section1 form div input {
   width: 100%;
   height: 5rem;
   font-size: 1.375rem;
@@ -52,10 +63,10 @@ p, h1, h2, h3, h4, h5, h6 {
   background: #dddddd url(../../dist/images/icons8-código-de-região-50.png) no-repeat left;
   background-size: 20%;
 }
-#section1 form input:focus {
+#section1 form div input:focus {
   outline: 2px solid #dddddd;
 }
-#section1 form button {
+#section1 form div button {
   height: 5rem;
   border-radius: 0 10px 10px 0;
   padding: 1.375rem;
@@ -63,12 +74,13 @@ p, h1, h2, h3, h4, h5, h6 {
   background-color: #dddddd;
   font-size: 1.375rem;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: 0.5s;
 }
-#section1 form button:hover {
+#section1 form div button:hover {
   background-color: #3a3a3a;
   border-color: #3a3a3a;
 }
@@ -95,6 +107,7 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .countryCard {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 4.5rem;
@@ -115,7 +128,9 @@ p, h1, h2, h3, h4, h5, h6 {
   padding: 4.5rem;
   min-width: 100vw;
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   gap: 3.5rem;
 }

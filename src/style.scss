@@ -14,6 +14,13 @@ $l1: 2.5rem;
 $l2: 3.5rem;
 $l3: 4.5rem;
 
+@mixin flex($fd, $jc, $ai){
+    display: flex;
+    flex-direction: $fd;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
 * {
     box-sizing: border-box;
     font-family: 'Tilt Neon', cursive;
@@ -26,18 +33,15 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 #container {
+    @include flex(column, flex-start, center);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color: $secundary;
     gap: $l2;
 }
 
 #section1{
+    @include flex(row, flex-start, center);
     min-width: 100vw;
-    display: flex;
-    align-items: center;
     color: $light;
     #information{
         width: 75%;
@@ -53,36 +57,36 @@ p, h1, h2, h3, h4, h5, h6 {
         }
     }
     form {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        input {
-            width: 100%;
-            height: 5rem;
-            font-size: $m2;
-            border-radius: 10px 0 0 10px;
-            padding-left: 15%;
-            background: $light url(../../dist/images/icons8-código-de-região-50.png) no-repeat left;
-            background-size: 20%;
-            &:focus {
-                outline: 2px solid $light;
+        @include flex(column, center, center);
+        gap: $m2;
+        div {
+            @include flex(row, center, center);
+            input {
+                width: 100%;
+                height: 5rem;
+                font-size: $m2;
+                border-radius: 10px 0 0 10px;
+                padding-left: 15%;
+                background: $light url(../../dist/images/icons8-código-de-região-50.png) no-repeat left;
+                background-size: 20%;
+                &:focus {
+                    outline: 2px solid $light;
+                }
             }
-        }
-        button {
-            height: 5rem;
-            border-radius: 0 10px 10px 0;
-            padding: $m2;
-            border: 2px solid transparent;
-            background-color: $light;
-            font-size: $m2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.5s;
-            &:hover {
-                background-color: $dark;
-                border-color: $dark;
+            button {
+                height: 5rem;
+                border-radius: 0 10px 10px 0;
+                padding: $m2;
+                border: 2px solid transparent;
+                background-color: $light;
+                font-size: $m2;
+                @include flex(row, center, center);
+                cursor: pointer;
+                transition: 0.5s;
+                &:hover {
+                    background-color: $dark;
+                    border-color: $dark;
+                }
             }
         }
         span {
@@ -100,18 +104,13 @@ p, h1, h2, h3, h4, h5, h6 {
         font-size: $m2;
         background-color: $light;
         padding: $m2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flex(column, center, center);
         gap: $l1;
     }
 }
 
 .countryCard {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
     gap: $l3;
     padding: 2rem;
     width: 90%;
@@ -119,18 +118,14 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 .imgsDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(column, center, center);
     gap: $m2;
 }
 
 #section3 {
     padding: $l3;
     min-width: 100vw;
-    display: flex;
-    justify-content: center;
+    @include flex(row, center, flex-start);
     flex-wrap: wrap;
     gap: $l2;
 }
@@ -142,10 +137,7 @@ p, h1, h2, h3, h4, h5, h6 {
     padding: $s1;
     width: 20%;
     background-color: $light;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    @include flex(column, center, center);
     gap: $s2;
     transition: 0.5s;
     cursor: pointer;
