@@ -10,6 +10,7 @@ export default class Card{
         this.card.classList.add('countryCard');
     }
     //resolver problema caso não tenha a informação de tal país
+    //tem fronteiras? S: cria array com as fronteiras e coloca nomes ao invés de siglas / N: emite essa informação
     addCardInfo(){
         const element = document.createElement('p');
         element.textContent = `The country is located at ${this.country.continents}, has borders with ${this.country.borders.join(', ')}, and it has an area of ${this.country.area} km2. The capital city of ${this.country.name.common} is ${this.country.capital}, and the currency is ${Object.values(this.country.currencies)[0].name},

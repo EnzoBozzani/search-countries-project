@@ -28,14 +28,10 @@ $l3: 4.5rem;
     padding: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
-    cursor: default;
-}
-
 #container {
     @include flex(column, flex-start, center);
     min-height: 100vh;
-    background-color: $secundary;
+    background-color: $dark;
     gap: $l2;
 }
 
@@ -46,8 +42,7 @@ p, h1, h2, h3, h4, h5, h6 {
     #information{
         width: 75%;
         padding: $l3;
-        display: flex;
-        align-items: center;
+        @include flex(row, flex-start, center);
         gap: $m3;
         p {
             width: 50%;
@@ -59,11 +54,12 @@ p, h1, h2, h3, h4, h5, h6 {
     form {
         @include flex(column, center, center);
         gap: $m2;
+        height: 5rem;
         div {
             @include flex(row, center, center);
             input {
                 width: 100%;
-                height: 5rem;
+                height: 100%;
                 font-size: $m2;
                 border-radius: 10px 0 0 10px;
                 padding-left: 15%;
@@ -74,7 +70,7 @@ p, h1, h2, h3, h4, h5, h6 {
                 }
             }
             button {
-                height: 5rem;
+                height: 100%;
                 border-radius: 0 10px 10px 0;
                 padding: $m2;
                 border: 2px solid transparent;
@@ -84,8 +80,8 @@ p, h1, h2, h3, h4, h5, h6 {
                 cursor: pointer;
                 transition: 0.5s;
                 &:hover {
-                    background-color: $dark;
-                    border-color: $dark;
+                    background-color: $main;
+                    border-color: $main;
                 }
             }
         }
@@ -106,6 +102,9 @@ p, h1, h2, h3, h4, h5, h6 {
         padding: $m2;
         @include flex(column, center, center);
         gap: $l1;
+        #before-img {
+            width: 70%;
+        }
     }
 }
 
@@ -132,18 +131,62 @@ p, h1, h2, h3, h4, h5, h6 {
 
 .info-card {
     text-decoration: none;
-    color: $dark;
+    color: $light;
     border-radius: 10px;
     padding: $s1;
     width: 20%;
-    background-color: $light;
+    background-color: transparent;
     @include flex(column, center, center);
     gap: $s2;
     transition: 0.5s;
     cursor: pointer;
     &:hover {
         scale: 1.1;
-        background-color: $secundary;
-        color: $light;
+        background-color: $main;
+        color: $dark;
+    }
+} 
+
+
+
+@media (max-width: 900px){
+    #section1 {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        #information{
+            width: 100%;
+            padding: $l3;
+            @include flex(row, flex-start, center);
+            gap: $m3;
+            p {
+                width: 50%;
+            }
+            #logo-img {
+                width: 40%;
+            }
+        }
     }
 }
+
+@media (max-width: 650px){
+    #section1 {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        #information{
+            width: 100%;
+            padding: $l3;
+            @include flex(column, center, center);
+            gap: $m3;
+            p {
+                width: 100%;
+            }
+            #logo-img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px){
+}
+
