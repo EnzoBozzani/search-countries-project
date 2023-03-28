@@ -10,11 +10,26 @@ export default class Card{
         this.card.classList.add('countryCard');
     }
     //resolver problema caso não tenha a informação de tal país
-    //tem fronteiras? S: cria array com as fronteiras e coloca nomes ao invés de siglas / N: emite essa informação
-    addCardInfo(){
+    async addCardInfo(){
+        const res = await fetch(`https://restcountries.com/v3.1/all`);
+        const countries = await res.json();
         const element = document.createElement('p');
-        element.textContent = `The country is located at ${this.country.continents}, has borders with ${this.country.borders.join(', ')}, and it has an area of ${this.country.area} km2. The capital city of ${this.country.name.common} is ${this.country.capital}, and the currency is ${Object.values(this.country.currencies)[0].name},
-        which symbol is ${Object.values(this.country.currencies)[0].symbol}. ${this.country.name.common}'s gini coefficient is ${Object.values(this.country.gini)[0]}`;
+        let borders = [];
+        if (this.country.hasOwnProperty('borders')){
+            this.country.borders.forEach(sigla => {
+                countries.forEach(country => {
+                    if (country.cca3 === sigla){
+                        borders.push(country.name.common);
+                    }
+                })
+            })
+            element.textContent = `The country is located at ${this.country.continents}, has borders with ${borders.join(', ')}, and it has an area of ${this.country.area} km2. The capital city of ${this.country.name.common} is ${this.country.capital}, and the currency is ${Object.values(this.country.currencies)[0].name},
+            which symbol is ${Object.values(this.country.currencies)[0].symbol}. ${this.country.name.common}'s gini coefficient is ${Object.values(this.country.gini)[0]}`;
+        }
+        else {
+            element.textContent = `The country is located at ${this.country.continents}, has borders with no other country, and it has an area of ${this.country.area} km2. The capital city of ${this.country.name.common} is ${this.country.capital }, and the currency is ${Object.values(this.country.currencies)[0].name },
+            which symbol is ${Object.values(this.country.currencies)[0].symbol}. ${this.country.name.common}'s gini coefficient is ${Object.values(this.country.gini)[0]}`;
+        }
         const brasao = document.createElement('img');
         brasao.src = this.country.coatOfArms.svg;
         brasao.style.width = '75%'; 
