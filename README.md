@@ -33,7 +33,7 @@ Webpack and Babel
 Clone project:
 
 ```
-git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
+git clone https://github.com/EnzoBozzani/search-countries-project.git
 ```
 
 Install dependencies:
